@@ -8,11 +8,9 @@ class Hub {
 
 class DoublyLinkedList {
   // create new Node
-  constructor(value) {
-    const newHub = new Hub(value);
-    this.head = newHub;
-    this.tail = this.head;
-    this.length = 1;
+  constructor() {
+    this.head = null;
+    this.tail = null;
   }
 
   // O(1)
@@ -26,15 +24,14 @@ class DoublyLinkedList {
       newHub.prev = this.tail;
       this.tail = newHub;
     }
-    this.length++;
     return this;
   }
 
   // O(1)
   pop() {
-    if (!this.head) return undefined;
+    if (!this.head) return null;
     let temp = this.tail;
-    if (this.length === 1) {
+    if (temp.prev === temp.next) {
       this.head = null;
       this.tail = null;
     } else {
@@ -42,12 +39,11 @@ class DoublyLinkedList {
       this.tail.next = null;
       temp.prev = null;
     }
-    this.length--;
     return temp;
   }
 }
 
-let myDoublyLinkedList = new DoublyLinkedList(1);
+let myDoublyLinkedList = new DoublyLinkedList();
+myDoublyLinkedList.push(0);
+myDoublyLinkedList.push(1);
 myDoublyLinkedList.push(2);
-myDoublyLinkedList.pop();
-console.log(myDoublyLinkedList);

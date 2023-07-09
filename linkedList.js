@@ -139,6 +139,7 @@ class LinkedList {
     return currentNode;
   }
 
+  // O(n)
   reverse() {
     let currentNode = this.head;
     this.head = this.tail;

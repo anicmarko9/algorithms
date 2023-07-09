@@ -41,6 +41,19 @@ class DoublyLinkedList {
     }
     return temp;
   }
+
+  unshift(value) {
+    const newHub = new Hub(value);
+    if (!this.head) {
+      this.head = newHub;
+      this.tail = newHub;
+    } else {
+      newHub.next = this.head;
+      this.head.prev = newHub;
+      this.head = newHub;
+    }
+    return this;
+  }
 }
 
 let myDoublyLinkedList = new DoublyLinkedList();

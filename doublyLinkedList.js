@@ -42,6 +42,7 @@ class DoublyLinkedList {
     return temp;
   }
 
+  // O(1)
   unshift(value) {
     const newHub = new Hub(value);
     if (!this.head) {
@@ -53,6 +54,20 @@ class DoublyLinkedList {
       this.head = newHub;
     }
     return this;
+  }
+
+  shift() {
+    if (!this.head) return null;
+    let temp = this.head;
+    if (temp.prev === temp.next) {
+      this.head = null;
+      this.tail = null;
+    } else {
+      this.head = this.head.next;
+      this.head.prev = null;
+      temp.next = null;
+    }
+    return temp;
   }
 }
 

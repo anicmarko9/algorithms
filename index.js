@@ -12,3 +12,9 @@ myDoublyLinkedList.push(2);
 myDoublyLinkedList.push(3);
 myDoublyLinkedList.push(4);
 myDoublyLinkedList.push(5);
+
+let myStack = new Stack();
+myStack.push(0);
+myStack.push(1);
+myStack.push(2);
+myStack.push(3);

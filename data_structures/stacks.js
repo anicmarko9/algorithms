@@ -16,4 +16,14 @@ class Stack {
     this.height++;
     return this;
   }
+
+  // O(1)
+  pop() {
+    if (!this.top) return null;
+    let temp = this.top;
+    this.top = this.top.next;
+    temp.next = null;
+    this.height--;
+    return temp;
+  }
 }

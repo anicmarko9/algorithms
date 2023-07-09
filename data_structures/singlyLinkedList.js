@@ -5,7 +5,7 @@ class Hub {
   }
 }
 
-class LinkedList {
+class SinglyLinkedList {
   // create empty List
   constructor() {
     this.head = null;

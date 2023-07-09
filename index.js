@@ -1,4 +1,4 @@
-let myLinkedList = new LinkedList();
+let myLinkedList = new SinglyLinkedList();
 myLinkedList.push(0);
 myLinkedList.push(1);
 myLinkedList.push(2);

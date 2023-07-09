@@ -6,12 +6,10 @@ class Hub {
 }
 
 class LinkedList {
-  // create new Node
-  constructor(value) {
-    const newHub = new Hub(value);
-    this.head = newHub;
-    this.tail = this.head;
-    this.length = 1;
+  // create empty List
+  constructor() {
+    this.head = null;
+    this.tail = null;
   }
 
   // create new Node
@@ -26,7 +24,6 @@ class LinkedList {
       this.tail.next = newHub;
       this.tail = newHub;
     }
-    this.length++;
     return this;
   }
 
@@ -34,21 +31,21 @@ class LinkedList {
   // return removed Node
   // O(n)
   pop() {
-    if (!this.head) return undefined;
-    let temp = this.head;
-    let pre = this.head;
-    while (temp.next) {
-      pre = temp;
-      temp = temp.next;
-    }
-    this.tail = pre;
-    this.tail.next = null;
-    this.length--;
-    if (this.length === 0) {
+    if (!this.head) return null;
+    let currentNode = this.head;
+    let prev = this.head;
+    if (!currentNode.next) {
       this.head = null;
       this.tail = null;
+      return currentNode;
     }
-    return temp;
+    while (currentNode.next) {
+      prev = currentNode;
+      currentNode = currentNode.next;
+    }
+    this.tail = prev;
+    this.tail.next = null;
+    return currentNode;
   }
 
   // create new Node
@@ -63,7 +60,6 @@ class LinkedList {
       newHub.next = this.head;
       this.head = newHub;
     }
-    this.length++;
     return this;
   }
 
@@ -71,34 +67,38 @@ class LinkedList {
   // return removed Node
   // O(1)
   shift() {
-    if (!this.head) return undefined;
-    let temp = this.head;
-    this.head = this.head.next;
-    temp.next = null;
-    this.length--;
-    if (this.length === 0) {
+    if (!this.head) return null;
+    let currentNode = this.head;
+    if (!currentNode.next) {
       this.tail = null;
+      return currentNode;
     }
-    return temp;
+    this.head = this.head.next;
+    currentNode.next = null;
+    return currentNode;
   }
 
   // find and return Node at index n
   // O(n)
   get(index) {
-    if (index < 0 || index >= this.length) return undefined;
-    let temp = this.head;
-    for (let i = 0; i < index; i++) {
-      temp = temp.next;
+    if (index < 0) return null;
+    let currentNode = this.head;
+    let counter = 0;
+    while (currentNode.next) {
+      if (index === counter) break;
+      currentNode = currentNode.next;
+      counter++;
     }
-    return temp;
+    if (counter < index) return null;
+    return currentNode;
   }
 
   // find and set Node at index n
   // O(n)
   set(index, value) {
-    let temp = this.get(index);
-    if (temp) {
-      temp.value = value;
+    let currentNode = this.get(index);
+    if (currentNode) {
+      currentNode.value = value;
       return true;
     }
     return false;
@@ -108,48 +108,57 @@ class LinkedList {
   // insert Node at index n
   // O(n)
   insert(index, value) {
-    if (index < 0 || index >= this.length) return false;
-    if (index === 0) return this.unshift(value);
-    if (index === this.length) return this.push(value);
+    if (index < 0) return false;
+    if (index === 0) {
+      this.unshift(value);
+      return true;
+    }
     const newHub = new Hub(value);
-    const temp = this.get(index - 1);
-    newHub.next = temp.next;
-    temp.next = newHub;
-    this.length++;
+    const currentNode = this.get(index - 1);
+    if (!currentNode) return false;
+    if (!currentNode.next) {
+      this.push(value);
+      return true;
+    }
+    newHub.next = currentNode.next;
+    currentNode.next = newHub;
     return true;
   }
 
   // remove Node at index n
   // O(n)
   remove(index) {
-    if (index < 0 || index >= this.length) return undefined;
+    if (index < 0) return null;
     if (index === 0) return this.shift();
-    if (index === this.length - 1) return this.pop();
     const before = this.get(index - 1);
-    const temp = before.next;
-    before.next = temp.next;
-    temp.next = null;
-    this.length--;
-    return temp;
+    const currentNode = before?.next;
+    if (!currentNode) return null;
+    if (!currentNode.next) return this.pop();
+    before.next = currentNode.next;
+    currentNode.next = null;
+    return currentNode;
   }
 
+  // O(n)
   reverse() {
-    let temp = this.head;
+    let currentNode = this.head;
     this.head = this.tail;
-    this.tail = temp;
-    let next = temp.next;
+    this.tail = currentNode;
+    let next = currentNode.next;
     let prev = null;
-    for (let i = 0; i < this.length; i++) {
-      next = temp.next;
-      temp.next = prev;
-      prev = temp;
-      temp = next;
+    while (currentNode) {
+      next = currentNode.next;
+      currentNode.next = prev;
+      prev = currentNode;
+      currentNode = next;
     }
     return this;
   }
 }
 
-let myLinkedList = new LinkedList(0);
+let myLinkedList = new LinkedList();
+myLinkedList.push(0);
+myLinkedList.push(1);
 myLinkedList.push(2);
-myLinkedList.insert(1, 1);
-myLinkedList.reverse();
+myLinkedList.push(3);
+myLinkedList.push(4);

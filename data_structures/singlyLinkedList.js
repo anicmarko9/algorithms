@@ -155,10 +155,3 @@ class LinkedList {
     return this;
   }
 }
-
-let myLinkedList = new LinkedList();
-myLinkedList.push(0);
-myLinkedList.push(1);
-myLinkedList.push(2);
-myLinkedList.push(3);
-myLinkedList.push(4);

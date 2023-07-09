@@ -24,3 +24,5 @@ myQueue.enqueue(0);
 myQueue.enqueue(1);
 myQueue.enqueue(2);
 myQueue.enqueue(3);
+
+let myBinarySearchTree = new BinarySearchTree();

@@ -76,26 +76,33 @@ class DoublyLinkedList {
   }
 
   get(index) {
-    if (index < 0) return null;
-    let current;
+    if (index < 0 || index >= this.length) return null;
+    let currentNode;
     if (index < 0.5 * this.length) {
-      current = this.head;
+      currentNode = this.head;
       let counter = 0;
-      while (current && counter < index) {
-        current = current.next;
+      while (currentNode && counter < index) {
+        currentNode = currentNode.next;
         counter++;
-        console.log("head");
       }
     } else {
-      current = this.tail;
+      currentNode = this.tail;
       let counter = this.length - 1;
-      while (current && counter > index) {
-        current = current.prev;
+      while (currentNode && counter > index) {
+        currentNode = currentNode.prev;
         counter--;
-        console.log("tail");
       }
     }
-    return current ? current : null;
+    return currentNode ? currentNode : null;
+  }
+
+  set(index, value) {
+    let currentNode = this.get(index);
+    if (currentNode) {
+      currentNode.value = value;
+      return true;
+    }
+    return false;
   }
 }
 

@@ -1,9 +1,9 @@
-let myLinkedList = new SinglyLinkedList();
-myLinkedList.push(0);
-myLinkedList.push(1);
-myLinkedList.push(2);
-myLinkedList.push(3);
-myLinkedList.push(4);
+let mySinglyLinkedList = new SinglyLinkedList();
+mySinglyLinkedList.push(0);
+mySinglyLinkedList.push(1);
+mySinglyLinkedList.push(2);
+mySinglyLinkedList.push(3);
+mySinglyLinkedList.push(4);
 
 let myDoublyLinkedList = new DoublyLinkedList();
 myDoublyLinkedList.push(0);

@@ -128,7 +128,7 @@ class LinkedList {
   // remove Node at index n
   // O(n)
   remove(index) {
-    if (index < 0 || index >= this.length) return null;
+    if (index < 0) return null;
     if (index === 0) return this.shift();
     const before = this.get(index - 1);
     const currentNode = before?.next;

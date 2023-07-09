@@ -60,6 +60,7 @@ class DoublyLinkedList {
     return this;
   }
 
+  // O(1)
   shift() {
     if (!this.head) return null;
     let currentNode = this.head;
@@ -75,6 +76,7 @@ class DoublyLinkedList {
     return currentNode;
   }
 
+  // O(n)
   get(index) {
     if (index < 0 || index >= this.length) return null;
     let currentNode;
@@ -96,6 +98,7 @@ class DoublyLinkedList {
     return currentNode ? currentNode : null;
   }
 
+  // O(n)
   set(index, value) {
     let currentNode = this.get(index);
     if (currentNode) {
@@ -105,6 +108,7 @@ class DoublyLinkedList {
     return false;
   }
 
+  // O(n)
   insert(index, value) {
     if (index < 0 || index > this.length) return false;
     if (index === 0) {
@@ -124,6 +128,20 @@ class DoublyLinkedList {
     after.prev = newHub;
     this.length++;
     return true;
+  }
+
+  // O(n)
+  remove(index) {
+    if (index < 0 || index >= this.length) return null;
+    if (index === this.length - 1) return this.pop();
+    if (index === 0) return this.shift();
+    const currentNode = this.get(index);
+    currentNode.prev.next = currentNode.next;
+    currentNode.next.prev = currentNode.prev;
+    currentNode.next = null;
+    currentNode.prev = null;
+    this.length--;
+    return currentNode;
   }
 }
 

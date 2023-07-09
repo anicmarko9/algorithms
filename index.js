@@ -18,3 +18,9 @@ myStack.push(0);
 myStack.push(1);
 myStack.push(2);
 myStack.push(3);
+
+let myQueue = new Queue();
+myQueue.enqueue(0);
+myQueue.enqueue(1);
+myQueue.enqueue(2);
+myQueue.enqueue(3);

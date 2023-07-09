@@ -1,4 +1,4 @@
-class Hub {
+class HubDbl {
   constructor(value) {
     this.value = value;
     this.next = null;
@@ -16,14 +16,14 @@ class DoublyLinkedList {
 
   // O(1)
   push(value) {
-    const newHub = new Hub(value);
+    const newHubDbl = new HubDbl(value);
     if (!this.head) {
-      this.head = newHub;
-      this.tail = newHub;
+      this.head = newHubDbl;
+      this.tail = newHubDbl;
     } else {
-      this.tail.next = newHub;
-      newHub.prev = this.tail;
-      this.tail = newHub;
+      this.tail.next = newHubDbl;
+      newHubDbl.prev = this.tail;
+      this.tail = newHubDbl;
     }
     this.length++;
     return this;
@@ -47,14 +47,14 @@ class DoublyLinkedList {
 
   // O(1)
   unshift(value) {
-    const newHub = new Hub(value);
+    const newHubDbl = new HubDbl(value);
     if (!this.head) {
-      this.head = newHub;
-      this.tail = newHub;
+      this.head = newHubDbl;
+      this.tail = newHubDbl;
     } else {
-      newHub.next = this.head;
-      this.head.prev = newHub;
-      this.head = newHub;
+      newHubDbl.next = this.head;
+      this.head.prev = newHubDbl;
+      this.head = newHubDbl;
     }
     this.length++;
     return this;
@@ -119,13 +119,13 @@ class DoublyLinkedList {
       this.push(value);
       return true;
     }
-    const newHub = new Hub(value);
+    const newHubDbl = new HubDbl(value);
     const before = this.get(index - 1);
     const after = before.next;
-    before.next = newHub;
-    newHub.prev = before;
-    newHub.next = after;
-    after.prev = newHub;
+    before.next = newHubDbl;
+    newHubDbl.prev = before;
+    newHubDbl.next = after;
+    after.prev = newHubDbl;
     this.length++;
     return true;
   }
@@ -144,11 +144,3 @@ class DoublyLinkedList {
     return currentNode;
   }
 }
-
-let myDoublyLinkedList = new DoublyLinkedList();
-myDoublyLinkedList.push(0);
-myDoublyLinkedList.push(1);
-myDoublyLinkedList.push(2);
-myDoublyLinkedList.push(3);
-myDoublyLinkedList.push(4);
-myDoublyLinkedList.push(5);

@@ -38,3 +38,8 @@ let myHashTable = new HashTable();
 myHashTable.set("lumber", 70);
 myHashTable.set("washers", 50);
 myHashTable.set("bolts", 200);
+
+let myGraph = new Graph();
+myGraph.addVertex("A");
+myGraph.addVertex("B");
+myGraph.addEdge("A", "B");

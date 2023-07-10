@@ -33,3 +33,5 @@ myBinarySearchTree.insert(7);
 myBinarySearchTree.insert(54);
 myBinarySearchTree.insert(112);
 myBinarySearchTree.insert(39);
+
+let myHashTable = new HashTable();

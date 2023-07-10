@@ -35,3 +35,6 @@ myBinarySearchTree.insert(112);
 myBinarySearchTree.insert(39);
 
 let myHashTable = new HashTable();
+myHashTable.set("lumber", 70);
+myHashTable.set("washers", 50);
+myHashTable.set("bolts", 200);

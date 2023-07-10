@@ -3,7 +3,8 @@ class HashTable {
     this.dataMap = new Array(size);
   }
 
-  // O(n)
+  // O(1)
+  // worst: O(n)
   _hash(key) {
     let hash = 0;
     for (let i = 0; i < key.length; i++) {
@@ -12,7 +13,8 @@ class HashTable {
     return hash;
   }
 
-  // O(n)
+  // O(1)
+  // worst: O(n)
   set(key, value) {
     let index = this._hash(key);
     if (!this.dataMap[index]) {
@@ -22,7 +24,8 @@ class HashTable {
     return this;
   }
 
-  // O(n^2)
+  // O(1)
+  // worst: O(n)
   get(key) {
     let index = this._hash(key);
     if (this.dataMap[index]) {
@@ -35,7 +38,8 @@ class HashTable {
     return null;
   }
 
-  // O(n^2)
+  // O(1)
+  // worst: O(n^2)
   keys() {
     let allKeys = [];
     for (let i = 0; i < this.dataMap.length; i++) {

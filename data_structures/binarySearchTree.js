@@ -37,6 +37,7 @@ class BinarySearchTree {
     }
   }
 
+  // O(log(n))
   contains(value) {
     if (!this.root) return false;
     let temp = this.root;
@@ -50,5 +51,13 @@ class BinarySearchTree {
       }
     }
     return false;
+  }
+
+  // this.minValueNode(this.root.right)
+  minValueNode(currentNode) {
+    while (currentNode.left) {
+      currentNode = currentNode.left;
+    }
+    return currentNode;
   }
 }

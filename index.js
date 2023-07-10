@@ -42,6 +42,4 @@ myHashTable.set("bolts", 200);
 let myGraph = new Graph();
 myGraph.addVertex("A");
 myGraph.addVertex("B");
-myGraph.addVertex("C");
-myGraph.addVertex("D");
-myGraph.addVertex("E");
+myGraph.addEdge("A", "B");

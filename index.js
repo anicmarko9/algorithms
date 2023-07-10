@@ -24,3 +24,12 @@ myQueue.enqueue(0);
 myQueue.enqueue(1);
 myQueue.enqueue(2);
 myQueue.enqueue(3);
+
+let myBinarySearchTree = new BinarySearchTree();
+myBinarySearchTree.insert(40);
+myBinarySearchTree.insert(35);
+myBinarySearchTree.insert(61);
+myBinarySearchTree.insert(7);
+myBinarySearchTree.insert(54);
+myBinarySearchTree.insert(112);
+myBinarySearchTree.insert(39);

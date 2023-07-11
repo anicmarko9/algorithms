@@ -49,3 +49,6 @@ bubbleSort(myArray1);
 
 const myArray2 = [4, 2, 6, 5, 1, 3];
 selectionSort(myArray2);
+
+const myArray3 = [4, 2, 6, 5, 1, 3];
+insertionSort(myArray3);

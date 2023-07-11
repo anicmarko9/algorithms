@@ -43,3 +43,6 @@ let myGraph = new Graph();
 myGraph.addVertex("A");
 myGraph.addVertex("B");
 myGraph.addEdge("A", "B");
+
+const myArray = [4, 2, 6, 5, 1, 3];
+bubbleSort(myArray);

@@ -44,5 +44,8 @@ myGraph.addVertex("A");
 myGraph.addVertex("B");
 myGraph.addEdge("A", "B");
 
-const myArray = [4, 2, 6, 5, 1, 3];
-bubbleSort(myArray);
+const myArray1 = [4, 2, 6, 5, 1, 3];
+bubbleSort(myArray1);
+
+const myArray2 = [4, 2, 6, 5, 1, 3];
+selectionSort(myArray2);

@@ -52,3 +52,6 @@ selectionSort(myArray2);
 
 const myArray3 = [4, 2, 6, 5, 1, 3];
 insertionSort(myArray3);
+
+let myArray4 = [4, 2, 6, 5, 1, 3];
+myArray4 = mergeSort(myArray4);

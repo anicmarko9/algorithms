@@ -62,3 +62,4 @@ quickSort(myArray5);
 const results1 = BFS(myBinarySearchTree);
 const results2 = DFSPreOrder(myBinarySearchTree);
 const results3 = DFSPostOrder(myBinarySearchTree);
+const results4 = DFSInOrder(myBinarySearchTree);

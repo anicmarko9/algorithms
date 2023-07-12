@@ -55,3 +55,6 @@ insertionSort(myArray3);
 
 let myArray4 = [4, 2, 6, 5, 1, 3];
 myArray4 = mergeSort(myArray4);
+
+const myArray5 = [4, 2, 6, 5, 1, 3];
+quickSort(myArray5);

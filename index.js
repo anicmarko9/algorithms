@@ -58,3 +58,5 @@ myArray4 = mergeSort(myArray4);
 
 const myArray5 = [4, 2, 6, 5, 1, 3];
 quickSort(myArray5);
+
+const results = BFS(myBinarySearchTree);

@@ -4,6 +4,7 @@ import { SinglyLinkedList } from "./data_structures/singlyLinkedList";
 import { Queue } from "./data_structures/queue";
 import { Graph } from "./data_structures/graph";
 import { HashTable } from "./data_structures/hashTable";
+import { BinarySearchTree } from "./data_structures/binarySearchTree";
 
 let mySinglyLinkedList = new SinglyLinkedList();
 mySinglyLinkedList.push(0);

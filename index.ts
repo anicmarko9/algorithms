@@ -1,4 +1,7 @@
-import { SinglyLinkedList } from "data_structures/singlyLinkedList";
+import { Stack } from "./data_structures/stack";
+import { DoublyLinkedList } from "./data_structures/doublyLinkedList";
+import { SinglyLinkedList } from "./data_structures/singlyLinkedList";
+import { Queue } from "./data_structures/queue";
 
 let mySinglyLinkedList = new SinglyLinkedList();
 mySinglyLinkedList.push(0);

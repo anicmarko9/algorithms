@@ -1,15 +1,20 @@
-class Queue {
+import { Hub } from "./singlyLinkedList";
+
+export class Queue {
+  first: Hub | null;
+  last: Hub | null;
+  length: number = 0;
+
   constructor() {
     this.first = null;
     this.last = null;
-    this.length = 0;
   }
 
   // Add on the end of the queue
   // O(1)
-  enqueue(value) {
+  enqueue(value: number): this {
     const newHub = new Hub(value);
-    if (!this.first) {
+    if (!this.last) {
       this.first = newHub;
       this.last = newHub;
     } else {
@@ -22,9 +27,9 @@ class Queue {
 
   // Remove first item in the queue
   // O(1)
-  dequeue() {
+  dequeue(): Hub | null {
     if (!this.first) return null;
-    let temp = this.first;
+    let temp: Hub = this.first;
     if (this.first === this.last) {
       this.first = null;
       this.last = null;

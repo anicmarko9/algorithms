@@ -1,7 +1,6 @@
 export class Hub {
   value: number;
   next: Hub | null;
-
   constructor(value: number) {
     this.value = value;
     this.next = null;
@@ -11,9 +10,7 @@ export class Hub {
 export class SinglyLinkedList {
   head: Hub | null;
   tail: Hub | null;
-  length: number = 0;
-
-  // create empty List
+  // create an empty List
   constructor() {
     this.head = null;
     this.tail = null;

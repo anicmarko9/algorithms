@@ -3,6 +3,7 @@ import { DoublyLinkedList } from "./data_structures/doublyLinkedList";
 import { SinglyLinkedList } from "./data_structures/singlyLinkedList";
 import { Queue } from "./data_structures/queue";
 import { Graph } from "./data_structures/graph";
+import { HashTable } from "./data_structures/hashTable";
 
 let mySinglyLinkedList = new SinglyLinkedList();
 mySinglyLinkedList.push(0);

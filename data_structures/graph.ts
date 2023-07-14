@@ -1,5 +1,6 @@
 export class Graph {
   adjacencyList: Record<string, string[]>;
+
   constructor() {
     this.adjacencyList = {};
   }

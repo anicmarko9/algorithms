@@ -1,23 +1,28 @@
 class HubDbl {
-  constructor(value) {
+  value: number;
+  next: HubDbl | null;
+  prev: HubDbl | null;
+  constructor(value: number) {
     this.value = value;
     this.next = null;
     this.prev = null;
   }
 }
 
-class DoublyLinkedList {
-  // create new Node
+export class DoublyLinkedList {
+  head: HubDbl | null;
+  tail: HubDbl | null;
+  length: number = 0;
+  // create an empty list
   constructor() {
     this.head = null;
     this.tail = null;
-    this.length = 0;
   }
 
   // O(1)
-  push(value) {
+  push(value: number): this {
     const newHubDbl = new HubDbl(value);
-    if (!this.head) {
+    if (!this.head || !this.tail) {
       this.head = newHubDbl;
       this.tail = newHubDbl;
     } else {
@@ -30,14 +35,14 @@ class DoublyLinkedList {
   }
 
   // O(1)
-  pop() {
-    if (!this.head) return null;
+  pop(): HubDbl | null {
+    if (!this.tail) return null;
     let currentNode = this.tail;
     if (currentNode.prev === currentNode.next) {
       this.head = null;
       this.tail = null;
     } else {
-      this.tail = this.tail.prev;
+      this.tail = this.tail.prev as HubDbl;
       this.tail.next = null;
       currentNode.prev = null;
     }
@@ -46,7 +51,7 @@ class DoublyLinkedList {
   }
 
   // O(1)
-  unshift(value) {
+  unshift(value: number): this {
     const newHubDbl = new HubDbl(value);
     if (!this.head) {
       this.head = newHubDbl;
@@ -61,14 +66,14 @@ class DoublyLinkedList {
   }
 
   // O(1)
-  shift() {
+  shift(): HubDbl | null {
     if (!this.head) return null;
     let currentNode = this.head;
     if (currentNode.prev === currentNode.next) {
       this.head = null;
       this.tail = null;
     } else {
-      this.head = this.head.next;
+      this.head = this.head.next as HubDbl;
       this.head.prev = null;
       currentNode.next = null;
     }
@@ -77,12 +82,12 @@ class DoublyLinkedList {
   }
 
   // O(n)
-  get(index) {
+  get(index: number): HubDbl | null {
     if (index < 0 || index >= this.length) return null;
-    let currentNode;
+    let currentNode: HubDbl | null;
     if (index < 0.5 * this.length) {
       currentNode = this.head;
-      let counter = 0;
+      let counter: number = 0;
       while (currentNode && counter < index) {
         currentNode = currentNode.next;
         counter++;
@@ -95,12 +100,12 @@ class DoublyLinkedList {
         counter--;
       }
     }
-    return currentNode ? currentNode : null;
+    return currentNode;
   }
 
   // O(n)
-  set(index, value) {
-    let currentNode = this.get(index);
+  set(index: number, value: number): boolean {
+    let currentNode: HubDbl | null = this.get(index);
     if (currentNode) {
       currentNode.value = value;
       return true;
@@ -109,7 +114,7 @@ class DoublyLinkedList {
   }
 
   // O(n)
-  insert(index, value) {
+  insert(index: number, value: number): boolean {
     if (index < 0 || index > this.length) return false;
     if (index === 0) {
       this.unshift(value);
@@ -120,8 +125,8 @@ class DoublyLinkedList {
       return true;
     }
     const newHubDbl = new HubDbl(value);
-    const before = this.get(index - 1);
-    const after = before.next;
+    const before = this.get(index - 1) as HubDbl;
+    const after = before.next as HubDbl;
     before.next = newHubDbl;
     newHubDbl.prev = before;
     newHubDbl.next = after;
@@ -131,13 +136,13 @@ class DoublyLinkedList {
   }
 
   // O(n)
-  remove(index) {
+  remove(index: number): HubDbl | null {
     if (index < 0 || index >= this.length) return null;
     if (index === this.length - 1) return this.pop();
     if (index === 0) return this.shift();
-    const currentNode = this.get(index);
-    currentNode.prev.next = currentNode.next;
-    currentNode.next.prev = currentNode.prev;
+    const currentNode = this.get(index) as HubDbl;
+    (currentNode.prev as HubDbl).next = currentNode.next;
+    (currentNode.next as HubDbl).prev = currentNode.prev;
     currentNode.next = null;
     currentNode.prev = null;
     this.length--;

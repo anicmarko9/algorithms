@@ -1,11 +1,14 @@
-class Stack {
+import { Hub } from "./singlyLinkedList";
+
+export class Stack {
+  top: Hub | null;
+  height: number = 0;
   constructor() {
     this.top = null;
-    this.height = 0;
   }
 
   // O(1)
-  push(value) {
+  push(value: number): this {
     const newHub = new Hub(value);
     if (!this.top) {
       this.top = newHub;
@@ -18,9 +21,9 @@ class Stack {
   }
 
   // O(1)
-  pop() {
+  pop(): Hub | null {
     if (!this.top) return null;
-    let temp = this.top;
+    let temp: Hub = this.top;
     this.top = this.top.next;
     temp.next = null;
     this.height--;

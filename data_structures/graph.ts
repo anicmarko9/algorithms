@@ -1,9 +1,10 @@
-class Graph {
+export class Graph {
+  adjacencyList: Record<string, string[]>;
   constructor() {
     this.adjacencyList = {};
   }
 
-  addVertex(vertex) {
+  addVertex(vertex: string): boolean {
     if (!this.adjacencyList[vertex]) {
       this.adjacencyList[vertex] = [];
       return true;
@@ -11,7 +12,7 @@ class Graph {
     return false;
   }
 
-  addEdge(vertex1, vertex2) {
+  addEdge(vertex1: string, vertex2: string): boolean {
     if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
       this.adjacencyList[vertex1].push(vertex2);
       this.adjacencyList[vertex2].push(vertex1);
@@ -20,7 +21,7 @@ class Graph {
     return false;
   }
 
-  removeEdge(vertex1, vertex2) {
+  removeEdge(vertex1: string, vertex2: string): boolean {
     if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
       this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
         (v) => v !== vertex2
@@ -33,10 +34,10 @@ class Graph {
     return false;
   }
 
-  removeVertex(vertex) {
+  removeVertex(vertex: string): this | null {
     if (!this.adjacencyList[vertex]) return null;
     while (this.adjacencyList[vertex].length) {
-      let temp = this.adjacencyList[vertex].pop();
+      let temp = this.adjacencyList[vertex].pop() as string;
       this.removeEdge(vertex, temp);
     }
     delete this.adjacencyList[vertex];

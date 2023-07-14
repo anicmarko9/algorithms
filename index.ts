@@ -1,3 +1,5 @@
+import { SinglyLinkedList } from "data_structures/singlyLinkedList";
+
 let mySinglyLinkedList = new SinglyLinkedList();
 mySinglyLinkedList.push(0);
 mySinglyLinkedList.push(1);

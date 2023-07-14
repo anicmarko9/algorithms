@@ -1,11 +1,18 @@
-class Hub {
-  constructor(value) {
+export class Hub {
+  value: number;
+  next: Hub | null;
+
+  constructor(value: number) {
     this.value = value;
     this.next = null;
   }
 }
 
-class SinglyLinkedList {
+export class SinglyLinkedList {
+  head: Hub | null;
+  tail: Hub | null;
+  length: number = 0;
+
   // create empty List
   constructor() {
     this.head = null;
@@ -15,9 +22,9 @@ class SinglyLinkedList {
   // create new Node
   // add Node to end
   // O(1)
-  push(value) {
+  push(value: number): this {
     const newHub = new Hub(value);
-    if (!this.head) {
+    if (!this.head || !this.tail) {
       this.head = newHub;
       this.tail = newHub;
     } else {
@@ -30,10 +37,10 @@ class SinglyLinkedList {
   // remove last Node
   // return removed Node
   // O(n)
-  pop() {
+  pop(): Hub | null {
     if (!this.head) return null;
-    let currentNode = this.head;
-    let prev = this.head;
+    let currentNode: Hub = this.head;
+    let prev: Hub = this.head;
     if (!currentNode.next) {
       this.head = null;
       this.tail = null;
@@ -51,7 +58,7 @@ class SinglyLinkedList {
   // create new Node
   // add Node to beginning
   // O(1)
-  unshift(value) {
+  unshift(value: number): this {
     const newHub = new Hub(value);
     if (!this.head) {
       this.head = newHub;
@@ -66,9 +73,9 @@ class SinglyLinkedList {
   // remove first Node
   // return removed Node
   // O(1)
-  shift() {
+  shift(): Hub | null {
     if (!this.head) return null;
-    let currentNode = this.head;
+    let currentNode: Hub = this.head;
     if (!currentNode.next) {
       this.tail = null;
       return currentNode;
@@ -80,10 +87,10 @@ class SinglyLinkedList {
 
   // find and return Node at index n
   // O(n)
-  get(index) {
-    if (index < 0) return null;
-    let currentNode = this.head;
-    let counter = 0;
+  get(index: number): Hub | null {
+    if (index < 0 || !this.head) return null;
+    let currentNode: Hub = this.head;
+    let counter: number = 0;
     while (currentNode.next) {
       if (index === counter) break;
       currentNode = currentNode.next;
@@ -95,8 +102,8 @@ class SinglyLinkedList {
 
   // find and set Node at index n
   // O(n)
-  set(index, value) {
-    let currentNode = this.get(index);
+  set(index: number, value: number): boolean {
+    let currentNode: Hub | null = this.get(index);
     if (currentNode) {
       currentNode.value = value;
       return true;
@@ -107,14 +114,14 @@ class SinglyLinkedList {
   // create new Node
   // insert Node at index n
   // O(n)
-  insert(index, value) {
+  insert(index: number, value: number): boolean {
     if (index < 0) return false;
     if (index === 0) {
       this.unshift(value);
       return true;
     }
     const newHub = new Hub(value);
-    const currentNode = this.get(index - 1);
+    const currentNode: Hub | null = this.get(index - 1);
     if (!currentNode) return false;
     if (!currentNode.next) {
       this.push(value);
@@ -127,25 +134,31 @@ class SinglyLinkedList {
 
   // remove Node at index n
   // O(n)
-  remove(index) {
+  remove(index: number): Hub | null {
     if (index < 0) return null;
     if (index === 0) return this.shift();
-    const before = this.get(index - 1);
-    const currentNode = before?.next;
-    if (!currentNode) return null;
+
+    const before: Hub | null = this.get(index - 1);
+    if (!before || (before && !before.next)) return null;
+
+    const currentNode = before.next as Hub;
     if (!currentNode.next) return this.pop();
+
     before.next = currentNode.next;
     currentNode.next = null;
+
     return currentNode;
   }
 
   // O(n)
-  reverse() {
-    let currentNode = this.head;
+  reverse(): this {
+    let currentNode: Hub | null = this.head;
+    if (!currentNode) return this;
     this.head = this.tail;
     this.tail = currentNode;
-    let next = currentNode.next;
-    let prev = null;
+
+    let next: Hub | null = currentNode.next;
+    let prev: Hub | null = null;
     while (currentNode) {
       next = currentNode.next;
       currentNode.next = prev;

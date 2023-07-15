@@ -11,6 +11,7 @@ import {
   insertionSort,
 } from "./algorithms/simpleAlgorithms";
 import { mergeSort } from "./algorithms/mergeSort";
+import { quickSort } from "./algorithms/quickSort";
 
 let mySinglyLinkedList = new SinglyLinkedList();
 mySinglyLinkedList.push(0);

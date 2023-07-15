@@ -10,6 +10,7 @@ import {
   selectionSort,
   insertionSort,
 } from "./algorithms/simpleAlgorithms";
+import { mergeSort } from "./algorithms/mergeSort";
 
 let mySinglyLinkedList = new SinglyLinkedList();
 mySinglyLinkedList.push(0);

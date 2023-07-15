@@ -1,3 +1,4 @@
+import { HubTr } from "./binarySearchTree";
 import { Hub } from "./singlyLinkedList";
 
 export class Queue {
@@ -12,7 +13,7 @@ export class Queue {
 
   // Add on the end of the queue
   // O(1)
-  enqueue(value: number): this {
+  enqueue(value: number | HubTr): this {
     const newHub = new Hub(value);
     if (!this.last) {
       this.first = newHub;

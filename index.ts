@@ -12,6 +12,12 @@ import {
 } from "./algorithms/simpleAlgorithms";
 import { mergeSort } from "./algorithms/mergeSort";
 import { quickSort } from "./algorithms/quickSort";
+import {
+  BFS,
+  DFSPreOrder,
+  DFSPostOrder,
+  DFSInOrder,
+} from "./algorithms/treeTraversal";
 
 let mySinglyLinkedList = new SinglyLinkedList();
 mySinglyLinkedList.push(0);

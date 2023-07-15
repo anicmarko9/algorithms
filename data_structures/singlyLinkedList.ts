@@ -1,4 +1,4 @@
-import { HubTr } from "./binarySearchTree";
+import { HubTr } from "./binarySearchTree.js";
 
 export class Hub {
   value: number;

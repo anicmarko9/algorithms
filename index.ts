@@ -1,23 +1,23 @@
-import { Stack } from "./data_structures/stack";
-import { DoublyLinkedList } from "./data_structures/doublyLinkedList";
-import { SinglyLinkedList } from "./data_structures/singlyLinkedList";
-import { Queue } from "./data_structures/queue";
-import { Graph } from "./data_structures/graph";
-import { HashTable } from "./data_structures/hashTable";
-import { BinarySearchTree } from "./data_structures/binarySearchTree";
+import { DoublyLinkedList } from "./data_structures/doublyLinkedList.js";
+import { SinglyLinkedList } from "./data_structures/singlyLinkedList.js";
+import { Stack } from "./data_structures/stack.js";
+import { Queue } from "./data_structures/queue.js";
+import { Graph } from "./data_structures/graph.js";
+import { HashTable } from "./data_structures/hashTable.js";
+import { BinarySearchTree } from "./data_structures/binarySearchTree.js";
 import {
   bubbleSort,
   selectionSort,
   insertionSort,
-} from "./algorithms/simpleAlgorithms";
-import { mergeSort } from "./algorithms/mergeSort";
-import { quickSort } from "./algorithms/quickSort";
+} from "./algorithms/simpleAlgorithms.js";
+import { mergeSort } from "./algorithms/mergeSort.js";
+import { quickSort } from "./algorithms/quickSort.js";
 import {
   BFS,
   DFSPreOrder,
   DFSPostOrder,
   DFSInOrder,
-} from "./algorithms/treeTraversal";
+} from "./algorithms/treeTraversal.js";
 
 let mySinglyLinkedList = new SinglyLinkedList();
 mySinglyLinkedList.push(0);
@@ -84,3 +84,22 @@ const results1 = BFS(myBinarySearchTree);
 const results2 = DFSPreOrder(myBinarySearchTree);
 const results3 = DFSPostOrder(myBinarySearchTree);
 const results4 = DFSInOrder(myBinarySearchTree);
+
+console.log(mySinglyLinkedList);
+console.log(myDoublyLinkedList);
+console.log(myStack);
+console.log(myQueue);
+console.log(myHashTable);
+console.log(myGraph);
+console.log(myBinarySearchTree);
+
+console.log(myArray1);
+console.log(myArray2);
+console.log(myArray3);
+console.log(myArray4);
+console.log(myArray5);
+
+console.log(results1);
+console.log(results2);
+console.log(results3);
+console.log(results4);

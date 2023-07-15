@@ -1,5 +1,5 @@
-import { HubTr } from "./binarySearchTree";
-import { Hub } from "./singlyLinkedList";
+import { HubTr } from "./binarySearchTree.js";
+import { Hub } from "./singlyLinkedList.js";
 
 export class Queue {
   first: Hub | null;

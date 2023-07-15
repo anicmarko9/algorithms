@@ -5,6 +5,11 @@ import { Queue } from "./data_structures/queue";
 import { Graph } from "./data_structures/graph";
 import { HashTable } from "./data_structures/hashTable";
 import { BinarySearchTree } from "./data_structures/binarySearchTree";
+import {
+  bubbleSort,
+  selectionSort,
+  insertionSort,
+} from "./algorithms/simpleAlgorithms";
 
 let mySinglyLinkedList = new SinglyLinkedList();
 mySinglyLinkedList.push(0);

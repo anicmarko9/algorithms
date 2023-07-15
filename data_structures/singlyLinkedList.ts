@@ -1,9 +1,21 @@
+import { HubTr } from "./binarySearchTree";
+
 export class Hub {
   value: number;
   next: Hub | null;
-  constructor(value: number) {
-    this.value = value;
-    this.next = null;
+  left?: HubTr | null = null;
+  right?: HubTr | null = null;
+  constructor(value: number | HubTr) {
+    if (typeof value === "number") {
+      this.value = value;
+      this.next = null;
+    } else {
+      // this code is used for queue inside of the bin. tree
+      this.value = value.value;
+      this.left = value.left;
+      this.right = value.right;
+      this.next = null;
+    }
   }
 }
 

@@ -199,4 +199,15 @@ export class SinglyLinkedList {
     }
     return arr;
   }
+
+  // O(1)
+  isEmpty(): boolean {
+    return !this.head;
+  }
+
+  // O(1)
+  clear(): void {
+    this.head = null;
+    this.tail = null;
+  }
 }

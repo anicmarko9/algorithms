@@ -246,4 +246,16 @@ export class SinglyLinkedList {
       currentNode = currentNode.next;
     }
   }
+
+  // Add map method to create a new array by applying a callback function to each element in the linked list
+  // O(n)
+  map(callback: (value: number) => any): any[] {
+    let currentNode: Hub | null = this.head;
+    const result: any[] = [];
+    while (currentNode) {
+      result.push(callback(currentNode.value));
+      currentNode = currentNode.next;
+    }
+    return result;
+  }
 }

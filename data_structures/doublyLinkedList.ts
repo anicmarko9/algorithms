@@ -173,4 +173,15 @@ export class DoublyLinkedList {
     }
     return elements.join(" <-> ");
   }
+
+  // O(1)
+  isEmpty(): boolean {
+    return this.length === 0;
+  }
+
+  clear(): void {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
 }

@@ -161,4 +161,16 @@ export class DoublyLinkedList {
     }
     return this;
   }
+
+  // list -> human-readable array
+  // O(n)
+  toString(): string {
+    let currentNode: HubDbl | null = this.head;
+    const elements: number[] = [];
+    while (currentNode) {
+      elements.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return elements.join(" <-> ");
+  }
 }

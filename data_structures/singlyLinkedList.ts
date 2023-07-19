@@ -249,9 +249,9 @@ export class SinglyLinkedList {
 
   // Add map method to create a new array by applying a callback function to each element in the linked list
   // O(n)
-  map(callback: (value: number) => any): any[] {
+  map(callback: (value: number) => unknown): unknown[] {
     let currentNode: Hub | null = this.head;
-    const result: any[] = [];
+    const result: unknown[] = [];
     while (currentNode) {
       result.push(callback(currentNode.value));
       currentNode = currentNode.next;

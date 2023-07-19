@@ -258,4 +258,18 @@ export class SinglyLinkedList {
     }
     return result;
   }
+
+  // Add filter method to create a new linked list with elements that pass a filter condition
+  // O(n)
+  filter(callback: (value: number) => boolean): SinglyLinkedList {
+    let currentNode: Hub | null = this.head;
+    const newList = new SinglyLinkedList();
+    while (currentNode) {
+      if (callback(currentNode.value)) {
+        newList.push(currentNode.value);
+      }
+      currentNode = currentNode.next;
+    }
+    return newList;
+  }
 }

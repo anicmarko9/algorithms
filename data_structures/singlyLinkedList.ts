@@ -210,4 +210,30 @@ export class SinglyLinkedList {
     this.head = null;
     this.tail = null;
   }
+
+  // O(n)
+  contains(value: number): boolean {
+    let currentNode: Hub | null = this.head;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return true;
+      }
+      currentNode = currentNode.next;
+    }
+    return false;
+  }
+
+  // O(n)
+  indexOf(value: number): number {
+    let currentNode: Hub | null = this.head;
+    let index = 0;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return index;
+      }
+      currentNode = currentNode.next;
+      index++;
+    }
+    return -1;
+  }
 }

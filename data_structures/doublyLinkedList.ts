@@ -179,9 +179,21 @@ export class DoublyLinkedList {
     return this.length === 0;
   }
 
+  // O(1)
   clear(): void {
     this.head = null;
     this.tail = null;
     this.length = 0;
+  }
+
+  // O(n)
+  toArray(): number[] {
+    const result: number[] = [];
+    let currentNode: HubDbl | null = this.head;
+    while (currentNode) {
+      result.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return result;
   }
 }

@@ -148,4 +148,17 @@ export class DoublyLinkedList {
     this.length--;
     return currentNode;
   }
+
+  // O(n)
+  reverse(): this {
+    let currentNode: HubDbl | null = this.head;
+    [this.head, this.tail] = [this.tail, this.head];
+    while (currentNode) {
+      const nextNode: HubDbl | null = currentNode.next;
+      currentNode.next = currentNode.prev;
+      currentNode.prev = nextNode;
+      currentNode = nextNode;
+    }
+    return this;
+  }
 }

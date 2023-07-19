@@ -236,4 +236,14 @@ export class SinglyLinkedList {
     }
     return -1;
   }
+
+  // Add forEach method to apply a callback function to each element in the linked list
+  // O(n)
+  forEach(callback: (value: number) => void): void {
+    let currentNode: Hub | null = this.head;
+    while (currentNode) {
+      callback(currentNode.value);
+      currentNode = currentNode.next;
+    }
+  }
 }

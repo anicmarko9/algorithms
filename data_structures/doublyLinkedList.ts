@@ -222,4 +222,37 @@ export class DoublyLinkedList {
     }
     return -1;
   }
+
+  // O(n)
+  forEach(callback: (value: number) => void): void {
+    let currentNode: HubDbl | null = this.head;
+    while (currentNode) {
+      callback(currentNode.value);
+      currentNode = currentNode.next;
+    }
+  }
+
+  // O(n)
+  map(callback: (value: number) => unknown): unknown[] {
+    const result: unknown[] = [];
+    let currentNode: HubDbl | null = this.head;
+    while (currentNode) {
+      result.push(callback(currentNode.value));
+      currentNode = currentNode.next;
+    }
+    return result;
+  }
+
+  // O(n)
+  filter(callback: (value: number) => boolean): DoublyLinkedList {
+    const newList = new DoublyLinkedList();
+    let currentNode: HubDbl | null = this.head;
+    while (currentNode) {
+      if (callback(currentNode.value)) {
+        newList.push(currentNode.value);
+      }
+      currentNode = currentNode.next;
+    }
+    return newList;
+  }
 }

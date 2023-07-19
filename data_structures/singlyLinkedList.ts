@@ -176,4 +176,64 @@ export class SinglyLinkedList {
     }
     return this;
   }
+
+  // O(n)
+  toString(): string {
+    let currentNode: Hub | null = this.head;
+    const elements: number[] = [];
+    while (currentNode) {
+      elements.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return elements.join(" -> ");
+  }
+
+  // list -> array
+  // O(n)
+  toArray(): number[] {
+    let currentNode: Hub | null = this.head;
+    const arr: number[] = [];
+    while (currentNode) {
+      arr.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return arr;
+  }
+
+  // O(1)
+  isEmpty(): boolean {
+    return !this.head;
+  }
+
+  // O(1)
+  clear(): void {
+    this.head = null;
+    this.tail = null;
+  }
+
+  // O(n)
+  contains(value: number): boolean {
+    let currentNode: Hub | null = this.head;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return true;
+      }
+      currentNode = currentNode.next;
+    }
+    return false;
+  }
+
+  // O(n)
+  indexOf(value: number): number {
+    let currentNode: Hub | null = this.head;
+    let index = 0;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return index;
+      }
+      currentNode = currentNode.next;
+      index++;
+    }
+    return -1;
+  }
 }

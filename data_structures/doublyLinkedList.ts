@@ -222,4 +222,13 @@ export class DoublyLinkedList {
     }
     return -1;
   }
+
+  // O(n)
+  forEach(callback: (value: number) => void): void {
+    let currentNode: HubDbl | null = this.head;
+    while (currentNode) {
+      callback(currentNode.value);
+      currentNode = currentNode.next;
+    }
+  }
 }

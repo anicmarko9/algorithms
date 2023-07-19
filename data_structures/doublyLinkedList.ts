@@ -242,4 +242,17 @@ export class DoublyLinkedList {
     }
     return result;
   }
+
+  // O(n)
+  filter(callback: (value: number) => boolean): DoublyLinkedList {
+    const newList = new DoublyLinkedList();
+    let currentNode: HubDbl | null = this.head;
+    while (currentNode) {
+      if (callback(currentNode.value)) {
+        newList.push(currentNode.value);
+      }
+      currentNode = currentNode.next;
+    }
+    return newList;
+  }
 }

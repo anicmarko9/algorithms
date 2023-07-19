@@ -231,4 +231,15 @@ export class DoublyLinkedList {
       currentNode = currentNode.next;
     }
   }
+
+  // O(n)
+  map(callback: (value: number) => unknown): unknown[] {
+    const result: unknown[] = [];
+    let currentNode: HubDbl | null = this.head;
+    while (currentNode) {
+      result.push(callback(currentNode.value));
+      currentNode = currentNode.next;
+    }
+    return result;
+  }
 }

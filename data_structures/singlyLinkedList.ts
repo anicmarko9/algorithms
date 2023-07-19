@@ -236,4 +236,40 @@ export class SinglyLinkedList {
     }
     return -1;
   }
+
+  // Add forEach method to apply a callback function to each element in the linked list
+  // O(n)
+  forEach(callback: (value: number) => void): void {
+    let currentNode: Hub | null = this.head;
+    while (currentNode) {
+      callback(currentNode.value);
+      currentNode = currentNode.next;
+    }
+  }
+
+  // Add map method to create a new array by applying a callback function to each element in the linked list
+  // O(n)
+  map(callback: (value: number) => any): any[] {
+    let currentNode: Hub | null = this.head;
+    const result: any[] = [];
+    while (currentNode) {
+      result.push(callback(currentNode.value));
+      currentNode = currentNode.next;
+    }
+    return result;
+  }
+
+  // Add filter method to create a new linked list with elements that pass a filter condition
+  // O(n)
+  filter(callback: (value: number) => boolean): SinglyLinkedList {
+    let currentNode: Hub | null = this.head;
+    const newList = new SinglyLinkedList();
+    while (currentNode) {
+      if (callback(currentNode.value)) {
+        newList.push(currentNode.value);
+      }
+      currentNode = currentNode.next;
+    }
+    return newList;
+  }
 }

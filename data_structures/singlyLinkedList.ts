@@ -176,4 +176,15 @@ export class SinglyLinkedList {
     }
     return this;
   }
+
+  // O(n)
+  toString(): string {
+    let currentNode: Hub | null = this.head;
+    const elements: number[] = [];
+    while (currentNode) {
+      elements.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return elements.join(" -> ");
+  }
 }

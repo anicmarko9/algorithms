@@ -148,4 +148,40 @@ export class DoublyLinkedList {
     this.length--;
     return currentNode;
   }
+
+  // O(n)
+  reverse(): this {
+    let currentNode: HubDbl | null = this.head;
+    [this.head, this.tail] = [this.tail, this.head];
+    while (currentNode) {
+      const nextNode: HubDbl | null = currentNode.next;
+      currentNode.next = currentNode.prev;
+      currentNode.prev = nextNode;
+      currentNode = nextNode;
+    }
+    return this;
+  }
+
+  // list -> human-readable array
+  // O(n)
+  toString(): string {
+    let currentNode: HubDbl | null = this.head;
+    const elements: number[] = [];
+    while (currentNode) {
+      elements.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return elements.join(" <-> ");
+  }
+
+  // O(1)
+  isEmpty(): boolean {
+    return this.length === 0;
+  }
+
+  clear(): void {
+    this.head = null;
+    this.tail = null;
+    this.length = 0;
+  }
 }

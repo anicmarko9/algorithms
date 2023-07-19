@@ -208,4 +208,18 @@ export class DoublyLinkedList {
     }
     return false;
   }
+
+  // O(n)
+  indexOf(value: number): number {
+    let currentNode: HubDbl | null = this.head;
+    let index = 0;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return index;
+      }
+      currentNode = currentNode.next;
+      index++;
+    }
+    return -1;
+  }
 }

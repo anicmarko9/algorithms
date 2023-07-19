@@ -187,4 +187,16 @@ export class SinglyLinkedList {
     }
     return elements.join(" -> ");
   }
+
+  // list -> array
+  // O(n)
+  toArray(): number[] {
+    let currentNode: Hub | null = this.head;
+    const arr: number[] = [];
+    while (currentNode) {
+      arr.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return arr;
+  }
 }

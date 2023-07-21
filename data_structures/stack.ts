@@ -29,4 +29,36 @@ export class Stack {
     this.height--;
     return temp;
   }
+
+  // O(1)
+  peek(): Hub | null {
+    return this.top;
+  }
+
+  // O(1)
+  size(): number {
+    return this.height;
+  }
+
+  // O(1)
+  isEmpty(): boolean {
+    return this.height === 0;
+  }
+
+  // O(1)
+  clear(): void {
+    this.top = null;
+    this.height = 0;
+  }
+
+  // O(n)
+  toArray(): number[] {
+    const result: number[] = [];
+    let currentNode: Hub | null = this.top;
+    while (currentNode) {
+      result.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return result;
+  }
 }

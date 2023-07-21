@@ -29,4 +29,9 @@ export class Stack {
     this.height--;
     return temp;
   }
+
+  // O(1)
+  peek(): Hub | null {
+    return this.top;
+  }
 }

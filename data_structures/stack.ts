@@ -103,4 +103,17 @@ export class Stack {
     }
     return result;
   }
+
+  // O(n)
+  filter(callback: (value: number) => boolean): Stack {
+    const newStack = new Stack();
+    let currentNode: Hub | null = this.top;
+    while (currentNode) {
+      if (callback(currentNode.value)) {
+        newStack.push(currentNode.value);
+      }
+      currentNode = currentNode.next;
+    }
+    return newStack;
+  }
 }

@@ -83,4 +83,37 @@ export class Stack {
     }
     return this;
   }
+
+  // O(n)
+  forEach(callback: (value: number) => void): void {
+    let currentNode: Hub | null = this.top;
+    while (currentNode) {
+      callback(currentNode.value);
+      currentNode = currentNode.next;
+    }
+  }
+
+  // O(n)
+  map(callback: (value: number) => unknown): unknown[] {
+    const result: unknown[] = [];
+    let currentNode: Hub | null = this.top;
+    while (currentNode) {
+      result.push(callback(currentNode.value));
+      currentNode = currentNode.next;
+    }
+    return result;
+  }
+
+  // O(n)
+  filter(callback: (value: number) => boolean): Stack {
+    const newStack = new Stack();
+    let currentNode: Hub | null = this.top;
+    while (currentNode) {
+      if (callback(currentNode.value)) {
+        newStack.push(currentNode.value);
+      }
+      currentNode = currentNode.next;
+    }
+    return newStack;
+  }
 }

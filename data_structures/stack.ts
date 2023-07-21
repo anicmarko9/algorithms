@@ -50,4 +50,15 @@ export class Stack {
     this.top = null;
     this.height = 0;
   }
+
+  // O(n)
+  toArray(): number[] {
+    const result: number[] = [];
+    let currentNode: Hub | null = this.top;
+    while (currentNode) {
+      result.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return result;
+  }
 }

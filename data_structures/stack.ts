@@ -73,4 +73,14 @@ export class Stack {
     }
     return false;
   }
+
+  // O(n)
+  reverse(): this {
+    const stackArray = this.toArray();
+    this.clear();
+    for (const value of stackArray) {
+      this.push(value);
+    }
+    return this;
+  }
 }

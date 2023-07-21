@@ -34,4 +34,20 @@ export class Stack {
   peek(): Hub | null {
     return this.top;
   }
+
+  // O(1)
+  size(): number {
+    return this.height;
+  }
+
+  // O(1)
+  isEmpty(): boolean {
+    return this.height === 0;
+  }
+
+  // O(1)
+  clear(): void {
+    this.top = null;
+    this.height = 0;
+  }
 }

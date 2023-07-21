@@ -61,4 +61,16 @@ export class Stack {
     }
     return result;
   }
+
+  // O(n)
+  contains(value: number): boolean {
+    let currentNode: Hub | null = this.top;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return true;
+      }
+      currentNode = currentNode.next;
+    }
+    return false;
+  }
 }

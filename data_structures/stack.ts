@@ -92,4 +92,15 @@ export class Stack {
       currentNode = currentNode.next;
     }
   }
+
+  // O(n)
+  map(callback: (value: number) => unknown): unknown[] {
+    const result: unknown[] = [];
+    let currentNode: Hub | null = this.top;
+    while (currentNode) {
+      result.push(callback(currentNode.value));
+      currentNode = currentNode.next;
+    }
+    return result;
+  }
 }

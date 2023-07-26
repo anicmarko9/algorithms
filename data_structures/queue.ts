@@ -78,4 +78,15 @@ export class Queue {
     }
     return false;
   }
+
+  // Convert the queue to an array
+  toArray(): number[] {
+    const result: number[] = [];
+    let currentNode: Hub | null = this.first;
+    while (currentNode) {
+      result.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return result;
+  }
 }

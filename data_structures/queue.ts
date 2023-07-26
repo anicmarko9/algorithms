@@ -66,4 +66,16 @@ export class Queue {
     this.last = null;
     this.length = 0;
   }
+
+  // Check if the queue contains a specific value
+  contains(value: number): boolean {
+    let currentNode: Hub | null = this.first;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return true;
+      }
+      currentNode = currentNode.next;
+    }
+    return false;
+  }
 }

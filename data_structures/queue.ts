@@ -1,5 +1,5 @@
-import { HubTr } from "./binarySearchTree.js";
-import { Hub } from "./singlyLinkedList.js";
+import { HubTr } from './binarySearchTree.js';
+import { Hub } from './singlyLinkedList.js';
 
 export class Queue {
   first: Hub | null;
@@ -40,5 +40,17 @@ export class Queue {
     }
     this.length--;
     return temp;
+  }
+
+  // Get the first item in the queue without removing it
+  // O(1)
+  peek(): Hub | null {
+    return this.first;
+  }
+
+  // Get the current number of elements in the queue
+  // O(1)
+  size(): number {
+    return this.length;
   }
 }

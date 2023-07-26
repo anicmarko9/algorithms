@@ -59,4 +59,11 @@ export class Queue {
   isEmpty(): boolean {
     return this.length === 0;
   }
+
+  // Remove all elements from the queue
+  clear(): void {
+    this.first = null;
+    this.last = null;
+    this.length = 0;
+  }
 }

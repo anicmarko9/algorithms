@@ -122,4 +122,18 @@ export class Queue {
     }
     return result;
   }
+
+  // Create a new queue with elements that pass a filter condition
+  // O(n)
+  filter(callback: (value: number) => boolean): Queue {
+    const newQueue = new Queue();
+    let currentNode: Hub | null = this.first;
+    while (currentNode) {
+      if (callback(currentNode.value)) {
+        newQueue.enqueue(currentNode.value);
+      }
+      currentNode = currentNode.next;
+    }
+    return newQueue;
+  }
 }

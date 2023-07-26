@@ -89,4 +89,15 @@ export class Queue {
     }
     return result;
   }
+
+  // Reverse the order of elements in the queue
+  // O(n)
+  reverse(): this {
+    const stackArray = this.toArray().reverse();
+    this.clear();
+    for (const value of stackArray) {
+      this.enqueue(value);
+    }
+    return this;
+  }
 }

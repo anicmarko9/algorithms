@@ -66,4 +66,27 @@ export class Queue {
     this.last = null;
     this.length = 0;
   }
+
+  // Check if the queue contains a specific value
+  contains(value: number): boolean {
+    let currentNode: Hub | null = this.first;
+    while (currentNode) {
+      if (currentNode.value === value) {
+        return true;
+      }
+      currentNode = currentNode.next;
+    }
+    return false;
+  }
+
+  // Convert the queue to an array
+  toArray(): number[] {
+    const result: number[] = [];
+    let currentNode: Hub | null = this.first;
+    while (currentNode) {
+      result.push(currentNode.value);
+      currentNode = currentNode.next;
+    }
+    return result;
+  }
 }

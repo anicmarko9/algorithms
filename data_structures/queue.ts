@@ -110,4 +110,16 @@ export class Queue {
       currentNode = currentNode.next;
     }
   }
+
+  // Create a new array by applying a callback function to each element in the queue
+  // O(n)
+  map(callback: (value: number) => unknown): unknown[] {
+    const result: unknown[] = [];
+    let currentNode: Hub | null = this.first;
+    while (currentNode) {
+      result.push(callback(currentNode.value));
+      currentNode = currentNode.next;
+    }
+    return result;
+  }
 }

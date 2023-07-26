@@ -47,4 +47,10 @@ export class Queue {
   peek(): Hub | null {
     return this.first;
   }
+
+  // Get the current number of elements in the queue
+  // O(1)
+  size(): number {
+    return this.length;
+  }
 }

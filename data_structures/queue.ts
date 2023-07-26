@@ -100,4 +100,14 @@ export class Queue {
     }
     return this;
   }
+
+  // Apply a callback function to each element in the queue
+  // O(n)
+  forEach(callback: (value: number) => void): void {
+    let currentNode: Hub | null = this.first;
+    while (currentNode) {
+      callback(currentNode.value);
+      currentNode = currentNode.next;
+    }
+  }
 }

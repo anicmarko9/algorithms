@@ -89,4 +89,51 @@ export class Queue {
     }
     return result;
   }
+
+  // Reverse the order of elements in the queue
+  // O(n)
+  reverse(): this {
+    const stackArray = this.toArray().reverse();
+    this.clear();
+    for (const value of stackArray) {
+      this.enqueue(value);
+    }
+    return this;
+  }
+
+  // Apply a callback function to each element in the queue
+  // O(n)
+  forEach(callback: (value: number) => void): void {
+    let currentNode: Hub | null = this.first;
+    while (currentNode) {
+      callback(currentNode.value);
+      currentNode = currentNode.next;
+    }
+  }
+
+  // Create a new array by applying a callback function to each element in the queue
+  // O(n)
+  map(callback: (value: number) => unknown): unknown[] {
+    const result: unknown[] = [];
+    let currentNode: Hub | null = this.first;
+    while (currentNode) {
+      result.push(callback(currentNode.value));
+      currentNode = currentNode.next;
+    }
+    return result;
+  }
+
+  // Create a new queue with elements that pass a filter condition
+  // O(n)
+  filter(callback: (value: number) => boolean): Queue {
+    const newQueue = new Queue();
+    let currentNode: Hub | null = this.first;
+    while (currentNode) {
+      if (callback(currentNode.value)) {
+        newQueue.enqueue(currentNode.value);
+      }
+      currentNode = currentNode.next;
+    }
+    return newQueue;
+  }
 }

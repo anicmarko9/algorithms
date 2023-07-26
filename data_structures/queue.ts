@@ -53,4 +53,10 @@ export class Queue {
   size(): number {
     return this.length;
   }
+
+  // Check if the queue is empty
+  // O(1)
+  isEmpty(): boolean {
+    return this.length === 0;
+  }
 }

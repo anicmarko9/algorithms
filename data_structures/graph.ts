@@ -49,4 +49,10 @@ export class Graph {
   getVertices(): string[] {
     return Object.keys(this.adjacencyList);
   }
+
+  // O(n)
+  getEdges(vertex: string): string[] {
+    if (!this.adjacencyList[vertex]) return [];
+    return this.adjacencyList[vertex];
+  }
 }

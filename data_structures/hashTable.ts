@@ -53,6 +53,11 @@ export class HashTable {
     }
     return allKeys;
   }
+
+  // O(1)
+  clear(): void {
+    this.dataMap = new Array(this.dataMap.length);
+  }
 }
 
 // from nested loops O(n^2) to separated loops O(n)

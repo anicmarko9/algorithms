@@ -72,6 +72,43 @@ export class HashTable {
     }
     return false;
   }
+
+  // O(n)
+  values(): number[] {
+    let allValues: number[] = [];
+    for (let i = 0; i < this.dataMap.length; i++) {
+      if (this.dataMap[i]) {
+        for (let j = 0; j < this.dataMap[i].length; j++) {
+          allValues.push(this.dataMap[i][j][1]);
+        }
+      }
+    }
+    return allValues;
+  }
+
+  // O(n)
+  entries(): [string, number][] {
+    let allEntries: [string, number][] = [];
+    for (let i = 0; i < this.dataMap.length; i++) {
+      if (this.dataMap[i]) {
+        for (let j = 0; j < this.dataMap[i].length; j++) {
+          allEntries.push(this.dataMap[i][j]);
+        }
+      }
+    }
+    return allEntries;
+  }
+
+  // O(1)
+  size(): number {
+    let count = 0;
+    for (let i = 0; i < this.dataMap.length; i++) {
+      if (this.dataMap[i]) {
+        count += this.dataMap[i].length;
+      }
+    }
+    return count;
+  }
 }
 
 // from nested loops O(n^2) to separated loops O(n)

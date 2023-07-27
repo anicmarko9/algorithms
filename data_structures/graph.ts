@@ -25,10 +25,10 @@ export class Graph {
   removeEdge(vertex1: string, vertex2: string): boolean {
     if (this.adjacencyList[vertex1] && this.adjacencyList[vertex2]) {
       this.adjacencyList[vertex1] = this.adjacencyList[vertex1].filter(
-        (v) => v !== vertex2
+        (v) => v !== vertex2,
       );
       this.adjacencyList[vertex2] = this.adjacencyList[vertex2].filter(
-        (v) => v !== vertex1
+        (v) => v !== vertex1,
       );
       return true;
     }
@@ -43,5 +43,10 @@ export class Graph {
     }
     delete this.adjacencyList[vertex];
     return this;
+  }
+
+  // O(n)
+  getVertices(): string[] {
+    return Object.keys(this.adjacencyList);
   }
 }

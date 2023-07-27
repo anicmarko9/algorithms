@@ -58,6 +58,20 @@ export class HashTable {
   clear(): void {
     this.dataMap = new Array(this.dataMap.length);
   }
+
+  // O(n)
+  delete(key: string): boolean {
+    let index: number = this._hash(key);
+    if (this.dataMap[index]) {
+      for (let i = 0; i < this.dataMap[index].length; i++) {
+        if (this.dataMap[index][i][0] === key) {
+          this.dataMap[index].splice(i, 1);
+          return true;
+        }
+      }
+    }
+    return false;
+  }
 }
 
 // from nested loops O(n^2) to separated loops O(n)

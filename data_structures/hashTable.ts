@@ -85,6 +85,19 @@ export class HashTable {
     }
     return allValues;
   }
+
+  // O(n)
+  entries(): [string, number][] {
+    let allEntries: [string, number][] = [];
+    for (let i = 0; i < this.dataMap.length; i++) {
+      if (this.dataMap[i]) {
+        for (let j = 0; j < this.dataMap[i].length; j++) {
+          allEntries.push(this.dataMap[i][j]);
+        }
+      }
+    }
+    return allEntries;
+  }
 }
 
 // from nested loops O(n^2) to separated loops O(n)

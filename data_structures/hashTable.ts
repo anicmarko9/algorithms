@@ -98,6 +98,17 @@ export class HashTable {
     }
     return allEntries;
   }
+
+  // O(1)
+  size(): number {
+    let count = 0;
+    for (let i = 0; i < this.dataMap.length; i++) {
+      if (this.dataMap[i]) {
+        count += this.dataMap[i].length;
+      }
+    }
+    return count;
+  }
 }
 
 // from nested loops O(n^2) to separated loops O(n)

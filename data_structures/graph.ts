@@ -78,7 +78,7 @@ export class Graph {
       : false;
   }
 
-  // O(v+k)
+  // O(n)
   clone(): Graph {
     const newGraph = new Graph();
     for (const vertex in this.adjacencyList) {
@@ -93,5 +93,95 @@ export class Graph {
   // O(1)
   clear(): void {
     this.adjacencyList = {};
+  }
+
+  // O(n)
+  forEachVertex(callback: (vertex: string) => void): void {
+    for (const vertex in this.adjacencyList) {
+      callback(vertex);
+    }
+  }
+
+  // O(n)
+  forEachEdge(callback: (vertex1: string, vertex2: string) => void): void {
+    for (const vertex in this.adjacencyList) {
+      for (const neighbor of this.adjacencyList[vertex]) {
+        if (vertex < neighbor) {
+          callback(vertex, neighbor);
+        }
+      }
+    }
+  }
+
+  // O(n)
+  mapVertices(callback: (vertex: string) => unknown): unknown[] {
+    const result: unknown[] = [];
+    for (const vertex in this.adjacencyList) {
+      result.push(callback(vertex));
+    }
+    return result;
+  }
+
+  // O(n)
+  mapEdges(callback: (vertex1: string, vertex2: string) => unknown): unknown[] {
+    const result: unknown[] = [];
+    for (const vertex in this.adjacencyList) {
+      for (const neighbor of this.adjacencyList[vertex]) {
+        if (vertex < neighbor) {
+          result.push(callback(vertex, neighbor));
+        }
+      }
+    }
+    return result;
+  }
+
+  // O(n)
+  filterVertices(callback: (vertex: string) => boolean): string[] {
+    const result: string[] = [];
+    for (const vertex in this.adjacencyList) {
+      if (callback(vertex)) {
+        result.push(vertex);
+      }
+    }
+    return result;
+  }
+
+  // O(n)
+  filterEdges(
+    callback: (vertex1: string, vertex2: string) => boolean,
+  ): [string, string][] {
+    const result: [string, string][] = [];
+    for (const vertex in this.adjacencyList) {
+      for (const neighbor of this.adjacencyList[vertex]) {
+        if (vertex < neighbor && callback(vertex, neighbor)) {
+          result.push([vertex, neighbor]);
+        }
+      }
+    }
+    return result;
+  }
+
+  // O(n)
+  findVertex(callback: (vertex: string) => boolean): string | null {
+    for (const vertex in this.adjacencyList) {
+      if (callback(vertex)) {
+        return vertex;
+      }
+    }
+    return null;
+  }
+
+  // O(n)
+  findEdge(
+    callback: (vertex1: string, vertex2: string) => boolean,
+  ): [string, string] | null {
+    for (const vertex in this.adjacencyList) {
+      for (const neighbor of this.adjacencyList[vertex]) {
+        if (vertex < neighbor && callback(vertex, neighbor)) {
+          return [vertex, neighbor];
+        }
+      }
+    }
+    return null;
   }
 }

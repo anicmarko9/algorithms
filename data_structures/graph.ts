@@ -77,4 +77,9 @@ export class Graph {
       ? this.adjacencyList[vertex1].includes(vertex2)
       : false;
   }
+
+  // O(1)
+  clear(): void {
+    this.adjacencyList = {};
+  }
 }

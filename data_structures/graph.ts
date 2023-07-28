@@ -60,4 +60,9 @@ export class Graph {
   size(): number {
     return Object.keys(this.adjacencyList).length;
   }
+
+  // O(1)
+  isEmpty(): boolean {
+    return this.size() === 0;
+  }
 }

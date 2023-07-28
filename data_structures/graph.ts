@@ -112,4 +112,13 @@ export class Graph {
       }
     }
   }
+
+  // O(n)
+  mapVertices(callback: (vertex: string) => unknown): unknown[] {
+    const result: unknown[] = [];
+    for (const vertex in this.adjacencyList) {
+      result.push(callback(vertex));
+    }
+    return result;
+  }
 }

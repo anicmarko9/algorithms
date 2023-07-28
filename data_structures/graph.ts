@@ -170,4 +170,18 @@ export class Graph {
     }
     return null;
   }
+
+  // O(n)
+  findEdge(
+    callback: (vertex1: string, vertex2: string) => boolean,
+  ): [string, string] | null {
+    for (const vertex in this.adjacencyList) {
+      for (const neighbor of this.adjacencyList[vertex]) {
+        if (vertex < neighbor && callback(vertex, neighbor)) {
+          return [vertex, neighbor];
+        }
+      }
+    }
+    return null;
+  }
 }

@@ -145,4 +145,19 @@ export class Graph {
     }
     return result;
   }
+
+  // O(n)
+  filterEdges(
+    callback: (vertex1: string, vertex2: string) => boolean,
+  ): [string, string][] {
+    const result: [string, string][] = [];
+    for (const vertex in this.adjacencyList) {
+      for (const neighbor of this.adjacencyList[vertex]) {
+        if (vertex < neighbor && callback(vertex, neighbor)) {
+          result.push([vertex, neighbor]);
+        }
+      }
+    }
+    return result;
+  }
 }

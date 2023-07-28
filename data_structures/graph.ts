@@ -134,4 +134,15 @@ export class Graph {
     }
     return result;
   }
+
+  // O(n)
+  filterVertices(callback: (vertex: string) => boolean): string[] {
+    const result: string[] = [];
+    for (const vertex in this.adjacencyList) {
+      if (callback(vertex)) {
+        result.push(vertex);
+      }
+    }
+    return result;
+  }
 }

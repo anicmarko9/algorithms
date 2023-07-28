@@ -160,4 +160,14 @@ export class Graph {
     }
     return result;
   }
+
+  // O(n)
+  findVertex(callback: (vertex: string) => boolean): string | null {
+    for (const vertex in this.adjacencyList) {
+      if (callback(vertex)) {
+        return vertex;
+      }
+    }
+    return null;
+  }
 }

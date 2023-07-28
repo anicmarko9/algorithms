@@ -94,4 +94,11 @@ export class Graph {
   clear(): void {
     this.adjacencyList = {};
   }
+
+  // O(n)
+  forEachVertex(callback: (vertex: string) => void): void {
+    for (const vertex in this.adjacencyList) {
+      callback(vertex);
+    }
+  }
 }

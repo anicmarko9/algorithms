@@ -65,4 +65,9 @@ export class Graph {
   isEmpty(): boolean {
     return this.size() === 0;
   }
+
+  // O(1)
+  isVertex(vertex: string): boolean {
+    return !!this.adjacencyList[vertex];
+  }
 }

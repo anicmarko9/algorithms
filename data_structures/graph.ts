@@ -121,4 +121,17 @@ export class Graph {
     }
     return result;
   }
+
+  // O(n)
+  mapEdges(callback: (vertex1: string, vertex2: string) => unknown): unknown[] {
+    const result: unknown[] = [];
+    for (const vertex in this.adjacencyList) {
+      for (const neighbor of this.adjacencyList[vertex]) {
+        if (vertex < neighbor) {
+          result.push(callback(vertex, neighbor));
+        }
+      }
+    }
+    return result;
+  }
 }

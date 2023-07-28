@@ -78,6 +78,18 @@ export class Graph {
       : false;
   }
 
+  // O(v+k)
+  clone(): Graph {
+    const newGraph = new Graph();
+    for (const vertex in this.adjacencyList) {
+      newGraph.addVertex(vertex);
+      for (const neighbor of this.adjacencyList[vertex]) {
+        newGraph.addEdge(vertex, neighbor);
+      }
+    }
+    return newGraph;
+  }
+
   // O(1)
   clear(): void {
     this.adjacencyList = {};

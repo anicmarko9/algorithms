@@ -78,7 +78,7 @@ export class Graph {
       : false;
   }
 
-  // O(v+k)
+  // O(n)
   clone(): Graph {
     const newGraph = new Graph();
     for (const vertex in this.adjacencyList) {
@@ -99,6 +99,17 @@ export class Graph {
   forEachVertex(callback: (vertex: string) => void): void {
     for (const vertex in this.adjacencyList) {
       callback(vertex);
+    }
+  }
+
+  // O(n)
+  forEachEdge(callback: (vertex1: string, vertex2: string) => void): void {
+    for (const vertex in this.adjacencyList) {
+      for (const neighbor of this.adjacencyList[vertex]) {
+        if (vertex < neighbor) {
+          callback(vertex, neighbor);
+        }
+      }
     }
   }
 }

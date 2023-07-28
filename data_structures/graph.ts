@@ -55,4 +55,9 @@ export class Graph {
     if (!this.adjacencyList[vertex]) return [];
     return this.adjacencyList[vertex];
   }
+
+  // O(1)
+  size(): number {
+    return Object.keys(this.adjacencyList).length;
+  }
 }

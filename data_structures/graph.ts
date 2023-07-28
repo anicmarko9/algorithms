@@ -70,4 +70,11 @@ export class Graph {
   isVertex(vertex: string): boolean {
     return !!this.adjacencyList[vertex];
   }
+
+  // O(1)
+  isEdge(vertex1: string, vertex2: string): boolean {
+    return this.isVertex(vertex1) && this.isVertex(vertex2)
+      ? this.adjacencyList[vertex1].includes(vertex2)
+      : false;
+  }
 }

@@ -98,7 +98,7 @@ export class BinarySearchTree {
     let parentNode: HubTr | null = null;
     let found: boolean = false;
 
-    // Find the node to remove and its parent.
+    // find the node to remove and its parent
     while (currentNode && !found) {
       if (value === currentNode.value) {
         found = true;
@@ -143,6 +143,13 @@ export class BinarySearchTree {
           parentNode.right = childNode;
         }
       }
+    }
+    // case 3: node to be removed has two children
+    else {
+      const successorNode: HubTr = this.minValueNode(currentNode!.right);
+      const successorValue: number = successorNode.value;
+      this.remove(successorValue);
+      currentNode!.value = successorValue;
     }
 
     return this;

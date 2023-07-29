@@ -89,4 +89,69 @@ export class BinarySearchTree {
     }
     return currentNode;
   }
+
+  // O(log(n))
+  remove(value: number): this {
+    // remove a value from the binary search tree while maintaining the BST property
+
+    let currentNode: HubTr | null = this.root;
+    let parentNode: HubTr | null = null;
+    let found: boolean = false;
+
+    // find the node to remove and its parent
+    while (currentNode && !found) {
+      if (value === currentNode.value) {
+        found = true;
+      } else if (value < currentNode.value) {
+        parentNode = currentNode;
+        currentNode = currentNode.left;
+      } else {
+        parentNode = currentNode;
+        currentNode = currentNode.right;
+      }
+    }
+
+    if (!found) return this; // value not found, do nothing
+
+    // case 1: node to be removed has no children
+    if (!currentNode!.left && !currentNode!.right) {
+      if (!parentNode) {
+        // if it's the root node with no children, simply remove it
+        this.root = null;
+      } else {
+        // otherwise, remove the reference from the parent node
+        if (parentNode.left === currentNode) {
+          parentNode.left = null;
+        } else {
+          parentNode.right = null;
+        }
+      }
+    }
+
+    // case 2: node to be removed has one child (either left or right)
+    else if (!currentNode!.left || !currentNode!.right) {
+      const childNode: HubTr | null = currentNode!.left || currentNode!.right;
+
+      if (!parentNode) {
+        // if it's the root node with one child, update the root
+        this.root = childNode;
+      } else {
+        // otherwise, update the reference from the parent node to the child node
+        if (parentNode.left === currentNode) {
+          parentNode.left = childNode;
+        } else {
+          parentNode.right = childNode;
+        }
+      }
+    }
+    // case 3: node to be removed has two children
+    else {
+      const successorNode: HubTr = this.minValueNode(currentNode!.right);
+      const successorValue: number = successorNode.value;
+      this.remove(successorValue);
+      currentNode!.value = successorValue;
+    }
+
+    return this;
+  }
 }

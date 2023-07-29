@@ -89,4 +89,30 @@ export class BinarySearchTree {
     }
     return currentNode;
   }
+
+  // O(log(n))
+  remove(value: number): this {
+    // remove a value from the binary search tree while maintaining the BST property
+
+    let currentNode: HubTr | null = this.root;
+    let parentNode: HubTr | null = null;
+    let found: boolean = false;
+
+    // Find the node to remove and its parent.
+    while (currentNode && !found) {
+      if (value === currentNode.value) {
+        found = true;
+      } else if (value < currentNode.value) {
+        parentNode = currentNode;
+        currentNode = currentNode.left;
+      } else {
+        parentNode = currentNode;
+        currentNode = currentNode.right;
+      }
+    }
+
+    if (!found) return this; // Value not found, do nothing.
+
+    return this;
+  }
 }

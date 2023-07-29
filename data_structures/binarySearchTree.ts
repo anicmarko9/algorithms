@@ -111,7 +111,22 @@ export class BinarySearchTree {
       }
     }
 
-    if (!found) return this; // Value not found, do nothing.
+    if (!found) return this; // value not found, do nothing
+
+    // case 1: node to be removed has no children
+    if (!currentNode!.left && !currentNode!.right) {
+      if (!parentNode) {
+        // if it's the root node with no children, simply remove it
+        this.root = null;
+      } else {
+        // otherwise, remove the reference from the parent node
+        if (parentNode.left === currentNode) {
+          parentNode.left = null;
+        } else {
+          parentNode.right = null;
+        }
+      }
+    }
 
     return this;
   }

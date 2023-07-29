@@ -128,6 +128,23 @@ export class BinarySearchTree {
       }
     }
 
+    // case 2: node to be removed has one child (either left or right)
+    else if (!currentNode!.left || !currentNode!.right) {
+      const childNode: HubTr | null = currentNode!.left || currentNode!.right;
+
+      if (!parentNode) {
+        // if it's the root node with one child, update the root
+        this.root = childNode;
+      } else {
+        // otherwise, update the reference from the parent node to the child node
+        if (parentNode.left === currentNode) {
+          parentNode.left = childNode;
+        } else {
+          parentNode.right = childNode;
+        }
+      }
+    }
+
     return this;
   }
 }

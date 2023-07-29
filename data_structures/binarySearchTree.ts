@@ -67,4 +67,26 @@ export class BinarySearchTree {
     }
     return currentNode;
   }
+
+  // O(log(n))
+  findMin(): HubTr | null {
+    // find the node with the minimum value in the entire binary search tree
+
+    let currentNode: HubTr | null = this.root;
+    while (currentNode && currentNode.left) {
+      currentNode = currentNode.left;
+    }
+    return currentNode;
+  }
+
+  // O(log(n))
+  findMax(): HubTr | null {
+    // Find the node with the maximum value in the entire binary search tree.
+
+    let currentNode: HubTr | null = this.root;
+    while (currentNode && currentNode.right) {
+      currentNode = currentNode.right;
+    }
+    return currentNode;
+  }
 }

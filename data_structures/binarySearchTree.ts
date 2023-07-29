@@ -81,7 +81,7 @@ export class BinarySearchTree {
 
   // O(log(n))
   findMax(): HubTr | null {
-    // Find the node with the maximum value in the entire binary search tree.
+    // find the node with the maximum value in the entire binary search tree
 
     let currentNode: HubTr | null = this.root;
     while (currentNode && currentNode.right) {
@@ -153,5 +153,23 @@ export class BinarySearchTree {
     }
 
     return this;
+  }
+
+  // O(log(n))
+  find(value: number): HubTr | null {
+    // find the node with a specific value in the binary search tree
+
+    let currentNode: HubTr | null = this.root;
+    while (currentNode) {
+      if (value === currentNode.value) {
+        return currentNode;
+      } else if (value < currentNode.value) {
+        currentNode = currentNode.left;
+      } else {
+        currentNode = currentNode.right;
+      }
+    }
+
+    return null; // value not found
   }
 }

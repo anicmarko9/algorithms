@@ -172,4 +172,49 @@ export class BinarySearchTree {
 
     return null; // value not found
   }
+
+  // O(n)
+  inOrderTraversal(callback: (node: HubTr) => void): void {
+    // perform an inorder traversal of the BST and apply the callback function to each node
+
+    function traverse(node: HubTr | null): void {
+      if (node) {
+        traverse(node.left);
+        callback(node);
+        traverse(node.right);
+      }
+    }
+
+    traverse(this.root);
+  }
+
+  // O(n)
+  preOrderTraversal(callback: (node: HubTr) => void): void {
+    // perform a preorder traversal of the BST and apply the callback function to each node
+
+    function traverse(node: HubTr | null): void {
+      if (node) {
+        callback(node);
+        traverse(node.left);
+        traverse(node.right);
+      }
+    }
+
+    traverse(this.root);
+  }
+
+  // O(n)
+  postOrderTraversal(callback: (node: HubTr) => void): void {
+    // perform a postorder traversal of the binary search tree and apply the callback function to each node
+
+    function traverse(node: HubTr | null): void {
+      if (node) {
+        traverse(node.left);
+        traverse(node.right);
+        callback(node);
+      }
+    }
+
+    traverse(this.root);
+  }
 }

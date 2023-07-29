@@ -202,4 +202,19 @@ export class BinarySearchTree {
 
     traverse(this.root);
   }
+
+  // O(n)
+  postOrderTraversal(callback: (node: HubTr) => void): void {
+    // perform a postorder traversal of the binary search tree and apply the callback function to each node
+
+    function traverse(node: HubTr | null): void {
+      if (node) {
+        traverse(node.left);
+        traverse(node.right);
+        callback(node);
+      }
+    }
+
+    traverse(this.root);
+  }
 }

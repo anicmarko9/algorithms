@@ -177,10 +177,25 @@ export class BinarySearchTree {
   inOrderTraversal(callback: (node: HubTr) => void): void {
     // perform an inorder traversal of the BST and apply the callback function to each node
 
-    function traverse(node: HubTr | null) {
+    function traverse(node: HubTr | null): void {
       if (node) {
         traverse(node.left);
         callback(node);
+        traverse(node.right);
+      }
+    }
+
+    traverse(this.root);
+  }
+
+  // O(n)
+  preOrderTraversal(callback: (node: HubTr) => void): void {
+    // perform a preorder traversal of the BST and apply the callback function to each node
+
+    function traverse(node: HubTr | null): void {
+      if (node) {
+        callback(node);
+        traverse(node.left);
         traverse(node.right);
       }
     }

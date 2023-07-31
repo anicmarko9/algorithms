@@ -1,8 +1,8 @@
 import {
   BinarySearchTree,
   HubTr,
-} from "./../data_structures/binarySearchTree.js";
-import { Queue } from "./../data_structures/queue.js";
+} from "../data_structures/binarySearchTree.js";
+import { Queue } from "../data_structures/queue.js";
 
 export function BFS(tree: BinarySearchTree): number[] {
   if (!tree.root) return [];

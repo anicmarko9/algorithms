@@ -1,23 +1,23 @@
-import { DoublyLinkedList } from "./data_structures/doublyLinkedList.js";
-import { SinglyLinkedList } from "./data_structures/singlyLinkedList.js";
-import { Stack } from "./data_structures/stack.js";
-import { Queue } from "./data_structures/queue.js";
-import { Graph } from "./data_structures/graph.js";
-import { HashTable } from "./data_structures/hashTable.js";
-import { BinarySearchTree } from "./data_structures/binarySearchTree.js";
+import { DoublyLinkedList } from "./client/src/data_structures/doublyLinkedList.js";
+import { SinglyLinkedList } from "./client/src/data_structures/singlyLinkedList.js";
+import { Stack } from "./client/src/data_structures/stack.js";
+import { Queue } from "./client/src/data_structures/queue.js";
+import { Graph } from "./client/src/data_structures/graph.js";
+import { HashTable } from "./client/src/data_structures/hashTable.js";
+import { BinarySearchTree } from "./client/src/data_structures/binarySearchTree.js";
 import {
   bubbleSort,
   selectionSort,
   insertionSort,
-} from "./algorithms/simpleAlgorithms.js";
-import { mergeSort } from "./algorithms/mergeSort.js";
-import { quickSort } from "./algorithms/quickSort.js";
+} from "./client/src/algorithms/simpleAlgorithms.js";
+import { mergeSort } from "./client/src/algorithms/mergeSort.js";
+import { quickSort } from "./client/src/algorithms/quickSort.js";
 import {
   BFS,
   DFSPreOrder,
   DFSPostOrder,
   DFSInOrder,
-} from "./algorithms/treeTraversal.js";
+} from "./client/src/algorithms/treeTraversal.js";
 
 let mySinglyLinkedList = new SinglyLinkedList();
 mySinglyLinkedList.push(0);

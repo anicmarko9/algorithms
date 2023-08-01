@@ -7,7 +7,7 @@ function swap(array: number[], firstIndex: number, secondIndex: number): void {
 function pivot(
   array: number[],
   pivotIndex: number = 0,
-  endIndex: number = array.length - 1
+  endIndex: number = array.length - 1,
 ): number {
   let swapIndex: number = pivotIndex;
   for (let i = pivotIndex + 1; i <= endIndex; i++) {
@@ -23,7 +23,7 @@ function pivot(
 export function quickSort(
   array: number[],
   left: number = 0,
-  right: number = array.length - 1
+  right: number = array.length - 1,
 ): number[] {
   if (left < right) {
     const pivotIndex: number = pivot(array, left, right);

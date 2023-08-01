@@ -171,7 +171,7 @@ export class DoublyLinkedList {
       elements.push(currentNode.value);
       currentNode = currentNode.next;
     }
-    return elements.join(" <-> ");
+    return elements.join(' <-> ');
   }
 
   // O(1)

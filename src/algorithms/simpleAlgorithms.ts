@@ -2,7 +2,7 @@ export function bubbleSort(array: number[]): number[] {
   for (let i = array.length - 1; i > 0; i--) {
     for (let j = 0; j < i; j++) {
       if (array[j] > array[j + 1]) {
-        let temp: number = array[j];
+        const temp: number = array[j];
         array[j] = array[j + 1];
         array[j + 1] = temp;
       }
@@ -19,7 +19,7 @@ export function selectionSort(array: number[]): number[] {
       if (array[j] < array[min]) min = j;
     }
     if (i !== min) {
-      let temp: number = array[i];
+      const temp: number = array[i];
       array[i] = array[min];
       array[min] = temp;
     }

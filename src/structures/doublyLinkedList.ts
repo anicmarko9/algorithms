@@ -37,7 +37,7 @@ export class DoublyLinkedList {
   // O(1)
   pop(): HubDbl | null {
     if (!this.tail) return null;
-    let currentNode = this.tail;
+    const currentNode = this.tail;
     if (currentNode.prev === currentNode.next) {
       this.head = null;
       this.tail = null;
@@ -68,7 +68,7 @@ export class DoublyLinkedList {
   // O(1)
   shift(): HubDbl | null {
     if (!this.head) return null;
-    let currentNode = this.head;
+    const currentNode = this.head;
     if (currentNode.prev === currentNode.next) {
       this.head = null;
       this.tail = null;
@@ -105,7 +105,7 @@ export class DoublyLinkedList {
 
   // O(n)
   set(index: number, value: number): boolean {
-    let currentNode: HubDbl | null = this.get(index);
+    const currentNode: HubDbl | null = this.get(index);
     if (currentNode) {
       currentNode.value = value;
       return true;

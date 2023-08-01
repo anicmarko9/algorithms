@@ -38,7 +38,7 @@ export class Graph {
   removeVertex(vertex: string): this | null {
     if (!this.adjacencyList[vertex]) return null;
     while (this.adjacencyList[vertex].length) {
-      let temp = this.adjacencyList[vertex].pop() as string;
+      const temp = this.adjacencyList[vertex].pop() as string;
       this.removeEdge(vertex, temp);
     }
     delete this.adjacencyList[vertex];

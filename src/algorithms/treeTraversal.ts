@@ -1,11 +1,11 @@
-import { BinarySearchTree, HubTr } from '../structures/binarySearchTree';
+import type { BinarySearchTree, HubTr } from '../structures/binarySearchTree';
 import { Queue } from '../structures/queue';
 
 export function BFS(tree: BinarySearchTree): number[] {
   if (!tree.root) return [];
   let currentNode: HubTr = tree.root;
-  let queue: Queue = new Queue();
-  let results: number[] = [];
+  const queue: Queue = new Queue();
+  const results: number[] = [];
 
   queue.enqueue(currentNode);
   while (queue.length) {
@@ -20,7 +20,7 @@ export function BFS(tree: BinarySearchTree): number[] {
 
 export function DFSPreOrder(tree: BinarySearchTree): number[] {
   if (!tree.root) return [];
-  let results: number[] = [];
+  const results: number[] = [];
 
   function traverse(currentNode: HubTr): void {
     results.push(currentNode.value);
@@ -34,7 +34,7 @@ export function DFSPreOrder(tree: BinarySearchTree): number[] {
 
 export function DFSPostOrder(tree: BinarySearchTree): number[] {
   if (!tree.root) return [];
-  let results: number[] = [];
+  const results: number[] = [];
 
   function traverse(currentNode: HubTr): void {
     if (currentNode.left) traverse(currentNode.left);
@@ -48,7 +48,7 @@ export function DFSPostOrder(tree: BinarySearchTree): number[] {
 
 export function DFSInOrder(tree: BinarySearchTree): number[] {
   if (!tree.root) return [];
-  let results: number[] = [];
+  const results: number[] = [];
 
   function traverse(currentNode: HubTr): void {
     if (currentNode.left) traverse(currentNode.left);

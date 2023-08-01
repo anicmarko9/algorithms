@@ -1,5 +1,5 @@
 function swap(array: number[], firstIndex: number, secondIndex: number): void {
-  let temp: number = array[firstIndex];
+  const temp: number = array[firstIndex];
   array[firstIndex] = array[secondIndex];
   array[secondIndex] = temp;
 }
@@ -26,7 +26,7 @@ export function quickSort(
   right: number = array.length - 1
 ): number[] {
   if (left < right) {
-    let pivotIndex: number = pivot(array, left, right);
+    const pivotIndex: number = pivot(array, left, right);
     quickSort(array, left, pivotIndex - 1);
     quickSort(array, pivotIndex + 1, right);
   }

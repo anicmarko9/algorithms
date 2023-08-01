@@ -1,4 +1,4 @@
-import { HubTr } from './binarySearchTree.js';
+import type { HubTr } from './binarySearchTree.js';
 import { Hub } from './singlyLinkedList.js';
 
 export class Queue {
@@ -30,7 +30,7 @@ export class Queue {
   // O(1)
   dequeue(): Hub | null {
     if (!this.first) return null;
-    let temp: Hub = this.first;
+    const temp: Hub = this.first;
     if (this.first === this.last) {
       this.first = null;
       this.last = null;

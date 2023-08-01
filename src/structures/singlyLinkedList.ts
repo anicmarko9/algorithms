@@ -1,4 +1,4 @@
-import { HubTr } from "./binarySearchTree.js";
+import type { HubTr } from "./binarySearchTree.js";
 
 export class Hub {
   value: number;
@@ -84,7 +84,7 @@ export class SinglyLinkedList {
   // O(1)
   shift(): Hub | null {
     if (!this.head) return null;
-    let currentNode: Hub = this.head;
+    const currentNode: Hub = this.head;
     if (!currentNode.next) {
       this.tail = null;
       return currentNode;
@@ -112,7 +112,7 @@ export class SinglyLinkedList {
   // find and set Node at index n
   // O(n)
   set(index: number, value: number): boolean {
-    let currentNode: Hub | null = this.get(index);
+    const currentNode: Hub | null = this.get(index);
     if (currentNode) {
       currentNode.value = value;
       return true;

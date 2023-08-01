@@ -18,7 +18,7 @@ export class HashTable {
   // O(1)
   // worst: O(n)
   set(key: string, value: number): this {
-    let index: number = this._hash(key);
+    const index: number = this._hash(key);
     if (!this.dataMap[index]) {
       this.dataMap[index] = [];
     }
@@ -29,7 +29,7 @@ export class HashTable {
   // O(1)
   // worst: O(n)
   get(key: string): number | null {
-    let index: number = this._hash(key);
+    const index: number = this._hash(key);
     if (this.dataMap[index]) {
       for (let i = 0; i < this.dataMap[index].length; i++) {
         if (this.dataMap[index][i][0] === key) {
@@ -43,7 +43,7 @@ export class HashTable {
   // O(1)
   // worst: O(n^2)
   keys(): string[] {
-    let allKeys: string[] = [];
+    const allKeys: string[] = [];
     for (let i = 0; i < this.dataMap.length; i++) {
       if (this.dataMap[i]) {
         for (let j = 0; j < this.dataMap[i].length; j++) {
@@ -61,7 +61,7 @@ export class HashTable {
 
   // O(n)
   delete(key: string): boolean {
-    let index: number = this._hash(key);
+    const index: number = this._hash(key);
     if (this.dataMap[index]) {
       for (let i = 0; i < this.dataMap[index].length; i++) {
         if (this.dataMap[index][i][0] === key) {
@@ -75,7 +75,7 @@ export class HashTable {
 
   // O(n)
   values(): number[] {
-    let allValues: number[] = [];
+    const allValues: number[] = [];
     for (let i = 0; i < this.dataMap.length; i++) {
       if (this.dataMap[i]) {
         for (let j = 0; j < this.dataMap[i].length; j++) {
@@ -88,7 +88,7 @@ export class HashTable {
 
   // O(n)
   entries(): [string, number][] {
-    let allEntries: [string, number][] = [];
+    const allEntries: [string, number][] = [];
     for (let i = 0; i < this.dataMap.length; i++) {
       if (this.dataMap[i]) {
         for (let j = 0; j < this.dataMap[i].length; j++) {
@@ -114,7 +114,7 @@ export class HashTable {
 // from nested loops O(n^2) to separated loops O(n)
 // check if the two arrays have the same item
 function itemInCommon(arr1: number[], arr2: number[]): boolean {
-  let obj: { [key: number]: boolean } = {};
+  const obj: { [key: number]: boolean } = {};
   for (let i = 0; i < arr1.length; i++) {
     obj[arr1[i]] = true;
   }

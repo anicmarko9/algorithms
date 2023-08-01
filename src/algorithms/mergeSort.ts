@@ -1,5 +1,5 @@
 function merge(array1: number[], array2: number[]): number[] {
-  let combined: number[] = [];
+  const combined: number[] = [];
   let i: number = 0;
   let j: number = 0;
   while (i < array1.length && j < array2.length) {
@@ -25,9 +25,9 @@ function merge(array1: number[], array2: number[]): number[] {
 export function mergeSort(array: number[]): number[] {
   if (array.length === 1) return array;
 
-  let mid: number = Math.floor(array.length / 2);
-  let left: number[] = array.slice(0, mid);
-  let right: number[] = array.slice(mid);
+  const mid: number = Math.floor(array.length / 2);
+  const left: number[] = array.slice(0, mid);
+  const right: number[] = array.slice(mid);
 
   return merge(mergeSort(left), mergeSort(right));
 }

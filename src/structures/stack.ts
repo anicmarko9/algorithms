@@ -23,7 +23,7 @@ export class Stack {
   // O(1)
   pop(): Hub | null {
     if (!this.top) return null;
-    let temp: Hub = this.top;
+    const temp: Hub = this.top;
     this.top = this.top.next;
     temp.next = null;
     this.height--;

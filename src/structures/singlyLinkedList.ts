@@ -1,4 +1,4 @@
-import type { HubTr } from "./binarySearchTree.js";
+import type { HubTr } from './binarySearchTree.js';
 
 export class Hub {
   value: number;
@@ -6,7 +6,7 @@ export class Hub {
   left?: HubTr | null = null;
   right?: HubTr | null = null;
   constructor(value: number | HubTr) {
-    if (typeof value === "number") {
+    if (typeof value === 'number') {
       this.value = value;
       this.next = null;
     } else {
@@ -185,7 +185,7 @@ export class SinglyLinkedList {
       elements.push(currentNode.value);
       currentNode = currentNode.next;
     }
-    return elements.join(" -> ");
+    return elements.join(' -> ');
   }
 
   // list -> array

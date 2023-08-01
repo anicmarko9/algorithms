@@ -1,4 +1,4 @@
-import { Hub } from "./singlyLinkedList.js";
+import { Hub } from './singlyLinkedList.js';
 
 export class Stack {
   top: Hub | null;

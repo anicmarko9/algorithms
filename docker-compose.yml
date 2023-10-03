@@ -1,0 +1,19 @@
+version: '3.8'
+name: production
+services:
+  algorithms-prod:
+    container_name: algorithms-prod
+    image: anicmarko9/algorithms-prod:1.0
+    restart: on-failure
+    build:
+      context: .
+      dockerfile: Dockerfile
+    networks:
+      - prod
+    ports:
+      - '80:80'
+    environment:
+      - NODE_ENV=production
+networks:
+  prod:
+    name: prod
